@@ -14,6 +14,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        LeagueItemController.fetchItems { (items) in
+            for item in items {
+                print(item.name)
+                print(item.sprite)
+            }
+        }
         // Override point for customization after application launch.
         return true
     }
