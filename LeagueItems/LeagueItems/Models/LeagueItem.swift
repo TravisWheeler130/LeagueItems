@@ -19,21 +19,20 @@ struct Item {
     let image: [String:Any]
     
     // The sprite from the image Dict...
-    let sprite: String
+    let full: String
 }
 
 //struct Image {
-//    let sprite: String
 //}
 
 extension Item {
     init?(dictionary: [String:Any]) {
-        guard let name = dictionary["name"]as? String, let description = dictionary["description"]as? String, let plaintext = dictionary["plaintext"]as? String, let image = dictionary["image"] as? [String:Any], let sprite = image["sprite"] as? String else {return nil}
+        guard let name = dictionary["name"]as? String, let description = dictionary["description"]as? String, let plaintext = dictionary["plaintext"]as? String, let image = dictionary["image"] as? [String:Any], let full = image["full"] as? String else {return nil}
         
         self.name = name
         self.description = description
         self.plaintext = plaintext
         self.image = image
-        self.sprite = sprite
+        self.full = full
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class LeagueItemController {
     /*
@@ -25,7 +26,7 @@ class LeagueItemController {
         //fetchPokeDex(with searchTerm: String, completion: @escaping (TopLevelDict?) -> Void)
         URLSession.shared.dataTask(with: finalURL) { (data, _, error) in
             if let error = error {
-            print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
             }
             
             // check for data
@@ -50,5 +51,15 @@ class LeagueItemController {
             }
             completion(items)
         }.resume()
+    }
+    
+    static func getItemImagefor(item: [Item], completion: @escaping (UIImage?) -> Void) {
+        let image = 
+        guard let imageURLAsString = item.image.full,
+            let url = URL(string: imageURLAsString) else {
+                print("Item did not have an image available at url provided")
+                completion(nil)
+                return
+        }
     }
 }
